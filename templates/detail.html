@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+
+ {% block body %}
+
+
+
+  
+    
+        <div class="card mb-4">
+           {% if post.image %}
+            <img src="{{ post.image.url }}" class="card-img-top img" alt="Post Image">
+           {% else %}
+           <h1>there is no image yet !</h1>
+           {% endif %}
+
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.description }}</p>
+                <p class="card-text">{{ post.category.name }}</p>
+                <a href="{% url 'update'  post.id  %}" class="btn btn-primary">Update</a>
+                <a href="{% url 'delete'  post.id  %}" class="btn btn-primary">delete</a>
+                <a href="{% url 'home'   %}" class="btn btn-primary">Back To Home</a>
+            </div>
+        </div>
+   
+
+
+
+{% endblock body %}
+   
